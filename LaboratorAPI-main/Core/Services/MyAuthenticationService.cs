@@ -12,11 +12,11 @@ using System.Security.Cryptography;
 
 namespace Core.Services
 {
-    internal class AuthenticationService
+    public class MyAuthenticationService
     {
         public readonly IConfiguration _configuration;
 
-        public AuthenticationService(IConfiguration configuration)
+        public MyAuthenticationService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -26,7 +26,7 @@ namespace Core.Services
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.Role, user.Role.RoleName)
             };
 
